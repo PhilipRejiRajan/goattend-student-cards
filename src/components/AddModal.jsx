@@ -60,11 +60,11 @@ export default function AddModal({ open, onClose, onStudentAdded }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-2xl w-full max-w-md p-6">
-        <h3 className="text-lg font-bold text-slate-800 mb-4">Add Student</h3>
+    <div className="fixed inset-0 bg-ink/45 flex items-center justify-center z-50 px-4">
+      <div className="bg-card border-2 border-line rounded-card w-full max-w-md p-8">
+        <h3 className="font-display text-xl text-ink mb-4">Add Student</h3>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
+        <form onSubmit={handleSubmit} className="space-y-2.5">
 
           <Input label="Full Name" name="name" value={formData.name} onChange={handleChange} />
           <Input label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
@@ -86,13 +86,13 @@ export default function AddModal({ open, onClose, onStudentAdded }) {
             options={["BCA", "MCA", "B.Sc", "M.Sc", "PhD"]}
           />
 
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && <p className="text-sm text-[#a12d2d] font-body">{error}</p>}
 
-          <div className="flex justify-end gap-2 pt-2">
-            <button type="button" onClick={handleClose} className="px-4 py-2 rounded-lg text-sm font-medium bg-slate-100 text-slate-700">
+          <div className="flex justify-end gap-3 pt-3">
+            <button type="button" onClick={handleClose} className="px-4 py-2.5 rounded-lg border-2 border-line bg-bg text-ink text-sm font-semibold font-body hover:-translate-y-0.5 transition-transform">
               Cancel
             </button>
-            <button type="submit" disabled={submitting} className="px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600 text-white disabled:opacity-60">
+            <button type="submit" disabled={submitting} className="px-4 py-2.5 rounded-lg border-2 border-line bg-accent text-bg text-sm font-semibold font-body disabled:opacity-60 hover:-translate-y-0.5 transition-transform">
               {submitting ? "Saving..." : "Save Student"}
             </button>
           </div>
@@ -105,8 +105,8 @@ export default function AddModal({ open, onClose, onStudentAdded }) {
 function Input({ label, ...props }) {
   return (
     <div>
-      <label className="text-sm font-medium text-slate-700">{label}</label>
-      <input {...props} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm mt-1" required />
+      <label className="text-sm font-semibold text-ink-soft font-body">{label}</label>
+      <input {...props} className="w-full rounded-lg border-2 border-line px-3 py-2.5 text-sm font-body bg-bg text-ink mt-1" required />
     </div>
   );
 }
@@ -114,8 +114,8 @@ function Input({ label, ...props }) {
 function Select({ label, options, ...props }) {
   return (
     <div>
-      <label className="text-sm font-medium text-slate-700">{label}</label>
-      <select {...props} className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm mt-1" required>
+      <label className="text-sm font-semibold text-ink-soft font-body">{label}</label>
+      <select {...props} className="w-full rounded-lg border-2 border-line px-3 py-2.5 text-sm font-body bg-bg text-ink mt-1" required>
         <option value="" disabled>Select {label.toLowerCase()}</option>
         {options.map((opt) => (
           <option key={opt} value={opt}>{opt}</option>
